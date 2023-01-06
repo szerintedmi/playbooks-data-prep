@@ -30,7 +30,7 @@ def get_embeddings(df: pd.DataFrame) -> None:
         lambda row: get_embedding(row["fullTitle"] + "\n" + row["content"], engine='text-embedding-ada-002'), axis=1)
 
 
-@st.experimental_singleton
+@st.experimental_memo
 def get_single_embedding(text: str) -> object:
     """
     Get a single embedding from OpenAI API 
